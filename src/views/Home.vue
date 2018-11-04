@@ -189,13 +189,20 @@ export default {
     showMenu(i, status){
       this.$refs.menuCollapsed.getElementsByClassName('submenu-hook-' + i)[0].style.display = status ? 'block' : 'none';
     },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
   },
   mounted: function () {
     let user = sessionStorage.getItem('user');
     if (user) {
       this.username = user;
     }
-  }
+  },
+  
 }
 </script>
 
