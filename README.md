@@ -2,6 +2,23 @@
 
 > A Vue.js project
 
+## frame
+vue webpack element vue-router
+
+## Create Setup
+``` bash
+# install global vue-cli
+npm install vue-cli -g
+
+# init project
+vue init webpack vue-backend
+
+# install dependencies
+cd vue-backend
+npm install element-ui --save
+npm install node-sass --save-dev
+```
+
 ## Build Setup
 
 ``` bash
