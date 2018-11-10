@@ -13,13 +13,17 @@
             v-model="ruleForm2.username"
             auto-complete="off"
             placeholder="用户名">
+            <template slot="prepend"><span class="fa fa-user fa-lg" style="width: 13px"></span></template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password"
+        <el-input :type="pwdType"
               v-model="ruleForm2.password"
               auto-complete="off"
+              
               placeholder="密码">
+              <template slot="prepend"><span class="fa fa-lock fa-lg" style="width: 13px"></span></template>
+              <template slot="suffix"><span class="password-eye" @click="showPassword" :class="eyeType" style=""></span></template>
         </el-input>
       </el-form-item>
       <el-checkbox v-model="checked"
@@ -47,10 +51,21 @@ export default {
         username: [{ required: true, message: 'please enter your account', trigger: 'blur' }],
         password: [{ required: true, message: 'enter your password', trigger: 'blur' }]
       },
-      checked: false
+      checked: false,
+      pwdType: 'password',
+      eyeType: 'fa fa-eye-slash fa-lg'
     }
   },
   methods: {
+    showPassword(){
+      if(this.pwdType === 'password'){
+        this.pwdType = ''
+        this.eyeType = 'fa fa-eye fa-lg'
+      }else{
+        this.pwdType = 'password'
+        this.eyeType = 'fa fa-eye-slash fa-lg'
+      }
+    },
     handleSubmit(event) {
       this.$refs.ruleForm2.validate((valid) => {
         if (valid) {
@@ -76,7 +91,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .login-container {
   width: 100%;
   height: 100%;
@@ -90,6 +105,11 @@ export default {
   background: #fff;
   border: 1px solid #eaeaea;
   box-shadow: 0 0 25px #cac6c6;
+  .password-eye {
+    position: absolute;
+    right: 20px;
+    top: 11px;
+  }
 }
 label.el-checkbox.rememberme {
   margin: 0px 0px 15px;
