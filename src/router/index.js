@@ -1,23 +1,18 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/views/Home'
+import VueRouter from 'vue-router'
 import Login from '@/views/TheLogin'
 import SidebarMenu from '@/views/SidebarMenu'
+import Container from '@/containers/Container'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
     {
       path: '/',
       name: 'SidebarMenu',
       iconCls: 'el-icon-menu',
-      component: Home,
+      component: Container,
       children: [{
         path: '/menu',
         component: SidebarMenu,
