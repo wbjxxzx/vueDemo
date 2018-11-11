@@ -109,6 +109,7 @@ export default {
     position: absolute;
     right: 20px;
     top: 11px;
+    cursor: pointer;
   }
 }
 label.el-checkbox.rememberme {

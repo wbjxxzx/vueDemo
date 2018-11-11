@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Login from '@/views/TheLogin'
 import SidebarMenu from '@/views/SidebarMenu'
 import Container from '@/containers/Container'
+import Dashboard from '@/views/dashboard'
+import Article from '@/views/article'
 
 Vue.use(VueRouter)
 
@@ -10,14 +12,21 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'SidebarMenu',
-      iconCls: 'el-icon-menu',
+      redirect: '/dashboard',
+      name: 'Container',
       component: Container,
-      children: [{
-        path: '/menu',
-        component: SidebarMenu,
-        name: '菜单'
-      }]
+      children: [
+        {
+          path: 'dashboard',
+          name: '首页',
+          component: Dashboard,
+        },
+        {
+          path: 'article',
+          name: '文章',
+          component: Article,
+        },
+      ]
     },
     {
       path: '/login',

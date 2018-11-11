@@ -30,7 +30,7 @@ body {
   display: -webkit-flex;
   flex-flow: row nowrap;
   &-side {
-    width: 230px!important;
+    width: 230px;
     height: 100%;
     font-weight: 700;
     border-right: $solidBorder;
