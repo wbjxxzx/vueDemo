@@ -124,8 +124,7 @@ export default {
       }
     },
     deleteCookie(){
-      this.setCookie('C-username', '', -1);
-      this.setCookie('C-password', '', -1);
+      this.setCookie('', '', -1)
     }
   },
   mounted(){
