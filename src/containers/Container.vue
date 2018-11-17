@@ -45,7 +45,7 @@
                    mode="horizontal"
                    @select="handleSelect"
                    active-text-color="#409EFF">
-            <el-menu-item index="/">首页</el-menu-item>
+              <el-menu-item key="/" index="/">主页</el-menu-item>
           </el-menu>
 
           <div class="app-header-userinfo">

@@ -6,14 +6,20 @@ import Container from '@/containers/Container'
 import Dashboard from '@/views/dashboard'
 import Article from '@/views/article'
 
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
     {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
       path: '/',
       redirect: '/dashboard',
-      name: 'Container',
+      name: '主页',
       component: Container,
       children: [
         {
@@ -28,11 +34,5 @@ export default new VueRouter({
         },
       ]
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    
   ]
 })
