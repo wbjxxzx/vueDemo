@@ -11,15 +11,16 @@
             router
             :collapse="collapse"
             >
-      <SidebarItem v-for="(item, idx) in routes" 
+      <SidebarItem v-for="(item, idx) in sidebar_routers.children" 
         :subroute="item"
-        :fatherpath="fatherPath"
+        :fatherpath="sidebar_routers.path"
         :barIdx="idx" :key="idx" />
     </el-menu>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import SidebarItem from './SidebarItem'
 export default {
   naem: "Sidebar",
@@ -35,13 +36,13 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'sidebar_routers',
+    ]),
      // 首次进入页面时展开当前页面所属的菜单
     defaultActive(){
       return this.$route.path
     },
-    fatherPath(){
-      return this.$router.options.routes[1].path
-    }
   }
 }
 </script>

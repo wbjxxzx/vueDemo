@@ -16,14 +16,8 @@
             </transition>
             <!-- <i v-show="isCollapse" class="fa fa-bars fa-lg" rotation="90"></i> -->
           </div>
-          <el-menu default-active="/"
-                  router
-                   class="el-menu-demo tab-page"
-                   mode="horizontal"
-                   @select="handleSelect"
-                   active-text-color="#409EFF">
-              <el-menu-item key="/" index="/">主页</el-menu-item>
-          </el-menu>
+
+          <NavbarItem :topLevelRoutes='permission_routers' />
 
           <div class="app-header-userinfo">
             <el-dropdown trigger="hover"
@@ -53,11 +47,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Sidebar from '@/components/Sidebar'
+import NavbarItem from '@/components/NavbarItem'
 export default {
   name: 'Container',
   components: {
-    Sidebar
+    Sidebar,
+    NavbarItem,
   },
   data() {
     return {
@@ -66,6 +63,7 @@ export default {
     }
   },
   computed: {
+     ...mapGetters(['permission_routers',]),
     defaultActive(){
       this.$router.path
     }
