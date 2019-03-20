@@ -1,0 +1,145 @@
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+// 解决 table 表头错位问题
+body .el-table th.gutter{
+  display: table-cell!important;
+}
+
+.app {
+  $solidBorder: 1px solid #eee;
+  $sideCollapsedWidth: 66px;
+  $sideExpandedWidth: 220px;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 1em;
+  width: 100%;
+  border: 1px solid #eee;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  &-side {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 220px!important;
+    height: calc(100% - 60px);
+    font-weight: 700;
+    // border-right: $solidBorder;
+    &-left {
+      background-color: rgb(238, 241, 246);
+    }
+    .el-menu-item.is-active {
+      background-color: #409eff;
+      color: #fff;
+    }
+    .el-submenu.is-active {
+      border-left: 5px solid #409eff;
+    }
+    &-collapsed {
+      width: 66px!important;
+    }
+    &-expanded {
+      width: 220px!important;
+    }
+  }
+  &-header {
+    z-index: 1000;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: $solidBorder;
+    &-logo {
+      text-align: center;
+      flex: none;
+      &-collapsed {
+        width: 66px;
+      }
+      &-expanded {
+        width: 220px;
+      }
+    }
+    .hamburger-contaner {
+      flex: none;
+    }
+    
+    &-userinfo {
+      // position: absolute;
+      // right: 0;
+      align-self: flex-end;
+      // margin-right: 25px;
+      display: flex;
+      flex-flow: row nowrap;
+      height: 60px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    &-userinfo:hover {
+      background-color: #409eff;
+    }
+    .avatar-dropdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 60px;
+      .avatar-container {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &-breadcrumb {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+  &-body {
+    margin-top: 60px;
+    padding: 0px 20px 20px 0px;
+    font-size: 1.5em;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    &-collapsed {
+      padding-left: 86px;
+    }
+    &-expanded {
+      padding-left: 240px;
+    }
+  }
+  
+  &-footer {
+    width: 100%;
+    height: 60px;
+  }
+  
+}
+
+
+.inline-block {
+  display: inline-block;
+}
