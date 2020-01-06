@@ -5,7 +5,7 @@
             router
             :collapse="collapse"
             >
-      <SidebarItem v-for="(item, idx) in sidebar_routers.children" 
+      <SidebarItem v-for="(item, idx) in sidebar_routers.children"
         :subroute="item"
         :fatherpath="sidebar_routers.path"
         :barIdx="idx" :key="idx" />
@@ -26,7 +26,7 @@ export default {
       type: Boolean
     },
     routes: {
-      type: Array
+      type: Object
     }
   },
   computed: {

@@ -14,6 +14,11 @@
           :index="item.path">
           {{ item.name }}
         </el-menu-item>
+        <el-menu-item v-else-if="!item.hidden"
+          :key="item.path"
+          :index="item.path">
+          {{ item.name }}
+        </el-menu-item>
       </template>
     </el-menu>
 </div>
