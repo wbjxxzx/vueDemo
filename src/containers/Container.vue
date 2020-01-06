@@ -42,7 +42,7 @@
           <!-- <Sidebar :collapse="isCollapse" :routes="$router.options.routes[1].children"/> -->
           <Sidebar :collapse="isCollapse" :routes="sidebar_routers"/>
         </el-aside>
-        
+
         <el-main class="app-body"
               :class="isCollapse ? 'app-body-collapsed' : 'app-body-expanded'">
           <template>
@@ -71,18 +71,17 @@ export default {
   data() {
     return {
       username: '',
-      isCollapse: false
     }
   },
   computed: {
-     ...mapGetters(['permission_routers', 'sidebar_routers']),
-    defaultActive(){
-      this.$router.path
-    }
+     ...mapGetters(['permission_routers', 'sidebar_routers', 'sidebar']),
+     isCollapse(){
+       return this.sidebar.opened
+     }
   },
   methods: {
     toggleSideBar() {
-      this.isCollapse = !this.isCollapse
+      this.$store.dispatch('ToggleSideBar')
     },
     logout: function () {
       this.$confirm('确认退出?', '提示', {})

@@ -18,7 +18,7 @@ function filterAsyncRouter(asyncRouterMap, roles){
   const accessedRouters = asyncRouterMap.filter(route => {
     // 404
     if(route.path === '*'){
-      return true 
+      return true
     }else if(hasRoles(roles, route)){
       if(route.children && route.children.length){
         route.children = filterAsyncRouter(route.children, roles)
@@ -53,13 +53,13 @@ const permission = {
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
-      state.addRouters = routers,
+      state.addRouters = constantRouterMap.concat(routers),
       state.routers = constantRouterMap.concat(routers)
     },
     SET_NOW_ROUTERS: (state, to) => {
       console.log('in SET_NOW_ROUTERS')
-      // 由于首页重定向到 /dashboard，并且不参与权限控制，特殊处理
-      if(to.path === '/dashboard'){
+      // 首页不参与权限控制，特殊处理
+      if(to.path === '/'){
         let dashboard = state.routers.filter(v => v.path === '/' )
         state.sidebar_routers = dashboard[0]
       }else{
